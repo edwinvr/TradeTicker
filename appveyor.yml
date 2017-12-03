@@ -5,6 +5,6 @@ before_build:
   - nuget restore Temporary_TradeTicker_Placeholder\Temporary_TradeTicker_Placeholder.sln
 build_script:
   - choco install "msbuild-sonarqube-runner" -y
-  - MSBuild.SonarQube.Runner.exe begin /k:Tradeticker /d:sonar.host.url=https://sonarqube.com /d:sonar.login=%sonarlogin%
+  - MSBuild.SonarQube.Runner.exe begin /k:Tradeticker /d:sonar.host.url=https://sonarqube.com /d:sonar.login=%sonarlogin% /o:edwinvr-github
   - msbuild "Temporary_TradeTicker_Placeholder\Temporary_TradeTicker_Placeholder.sln"
   - MSBuild.SonarQube.Runner.exe end /d:sonar.login=%sonarlogin%

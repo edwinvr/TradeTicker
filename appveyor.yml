@@ -10,7 +10,7 @@ build_script:
 #  - MSBuild.SonarQube.Runner.exe end /d:sonar.login=%sonarlogin%
 artifacts:
   - path: bin\Debug\*.exe
-    name: tradeticker
+    name: Temporary_TradeTicker_Placeholder
 deploy:
   release: myproduct-v$(appveyor_build_version)
   description: 'Release description'

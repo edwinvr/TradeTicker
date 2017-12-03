@@ -9,12 +9,13 @@ build_script:
   - msbuild "Temporary_TradeTicker_Placeholder\Temporary_TradeTicker_Placeholder.sln"
 #  - MSBuild.SonarQube.Runner.exe end /d:sonar.login=%sonarlogin%
 artifacts:
-  - path: C:\projects\tradeticker\Temporary_TradeTicker_Placeholder\bin\Debug\Temporary_TradeTicker_Placeholder.exe
-    name: Temporary_TradeTicker_Placeholder
+  - path: Temporary_TradeTicker_Placeholder\bin\Debug\*
+    name: mybuild
 deploy:
   release: myproduct-v$(appveyor_build_version)
   description: 'Release description'
   provider: GitHub
+  artifact: mybuild
   auth_token:
     secure: SY+6iEMqUlbzMcvBp6VHamJCMs7sMLTFYy1BLHvsDT12GxTQxrmZRvxuLKxW+9Aq # your encrypted token from GitHub
   draft: false

@@ -18,5 +18,11 @@ namespace Temporary_TradeTicker_Placeholder
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
         }
+
+        private static void EmptyMethodForSonarToDetect()
+        {
+
+        }
+
     }
 }

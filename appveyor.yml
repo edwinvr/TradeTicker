@@ -3,13 +3,19 @@ environment:
     secure: sao5EE3hl2It2xv4colifAIVz134RLHv1yYijwuacL2uF2evx8F5p3P2SNZC6Lm4
 before_build:
   - nuget restore Temporary_TradeTicker_Placeholder\Temporary_TradeTicker_Placeholder.sln
+assembly_info:
+  patch: true
+  file: '**\AssemblyInfo.*'
+  assembly_version: '$(appveyor_build_version)'
+  assembly_file_version: '$(appveyor_build_version)'
+  assembly_informational_version: '$(appveyor_build_version)'
 build_script:
 #  - choco install "msbuild-sonarqube-runner" -y
 #  - MSBuild.SonarQube.Runner.exe begin /k:Tradeticker /d:sonar.host.url=https://sonarqube.com /d:sonar.login=%sonarlogin% /o:edwinvr-github /v:"%appveyor_build_version%
   - msbuild "Temporary_TradeTicker_Placeholder\Temporary_TradeTicker_Placeholder.sln"
 #  - MSBuild.SonarQube.Runner.exe end /d:sonar.login=%sonarlogin%
 artifacts:
-  - path: Temporary_TradeTicker_Placeholder\bin\Debug\*
+  - path: Temporary_TradeTicker_Placeholder\bin\Debug\*.exe
     name: mybuild
 deploy:
   release: myproduct-v$(appveyor_build_version)

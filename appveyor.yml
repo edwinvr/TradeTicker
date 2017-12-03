@@ -2,9 +2,9 @@ environment:
   sonarlogin:
     secure: sao5EE3hl2It2xv4colifAIVz134RLHv1yYijwuacL2uF2evx8F5p3P2SNZC6Lm4
 before_build:
-  - nuget restore Temporary_TradeTicker_Placeholder\Temporary_TradeTicker_Placeholder.sln
+	  - nuget restore Temporary_TradeTicker_Placeholder\Temporary_TradeTicker_Placeholder.sln
 build_script:
   - choco install "msbuild-sonarqube-runner" -y
-  - MSBuild.SonarQube.Runner.exe begin /k:"Tradeticker" /d:"sonar.host.url=https://sonarqube.com" /d:"sonar.login=$env:sonarlogin"
+  - MSBuild.SonarQube.Runner.exe begin /k:"Tradeticker" /d:"sonar.host.url=https://sonarqube.com" /d:"sonar.login=($env:sonarlogin)"
   - msbuild "Temporary_TradeTicker_Placeholder.sln"
-  - MSBuild.SonarQube.Runner.exe end /d:"sonar.login=$env:sonarlogin"
+  - MSBuild.SonarQube.Runner.exe end /d:"sonar.login=($env:sonarlogin)"

@@ -14,7 +14,7 @@ deploy:
   provider: GitHub
   auth_token:
     secure: SY+6iEMqUlbzMcvBp6VHamJCMs7sMLTFYy1BLHvsDT12GxTQxrmZRvxuLKxW+9Aq # your encrypted token from GitHub
-  artifact: Temporary_TradeTicker_Placeholder\bin           # upload all NuGet packages to release assets
+  artifact: /interop-.*\.zip/,/.*\.exe/,/.*\.nupkg          # upload all NuGet packages to release assets
   draft: false
   prerelease: false
   on:

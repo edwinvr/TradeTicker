@@ -10,10 +10,10 @@ assembly_info:
   assembly_file_version: '$(appveyor_build_version)'
   assembly_informational_version: '$(appveyor_build_version)'
 build_script:
-# - choco install "msbuild-sonarqube-runner" -y
-# - MSBuild.SonarQube.Runner.exe begin /k:Tradeticker /d:sonar.host.url=https://sonarqube.com /d:sonar.login=%sonarlogin% /o:edwinvr-github /v:"%appveyor_build_version%
+ - choco install "msbuild-sonarqube-runner" -y
+ - MSBuild.SonarQube.Runner.exe begin /k:Tradeticker /d:sonar.host.url=https://sonarqube.com /d:sonar.login=%sonarlogin% /o:edwinvr-github /v:"%appveyor_build_version%
  - msbuild "Temporary_TradeTicker_Placeholder\Temporary_TradeTicker_Placeholder.sln" /p:Configuration=Release
-# - MSBuild.SonarQube.Runner.exe end /d:sonar.login=%sonarlogin%
+ - MSBuild.SonarQube.Runner.exe end /d:sonar.login=%sonarlogin%
 artifacts:
   - path: Temporary_TradeTicker_Placeholder\bin\Release\*.exe
     name: mybuild

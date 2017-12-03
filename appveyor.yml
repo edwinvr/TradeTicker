@@ -6,5 +6,5 @@ before_build:
 build_script:
   - choco install "msbuild-sonarqube-runner" -y
   - MSBuild.SonarQube.Runner.exe begin /k:"Tradeticker" /d:"sonar.host.url=https://sonarqube.com" /d:"sonar.login=$env:sonarlogin"
-  - msbuild "Temporary_TradeTicker_Placeholder.sln"
+  - msbuild "Temporary_TradeTicker_Placeholder\Temporary_TradeTicker_Placeholder.sln"
   - MSBuild.SonarQube.Runner.exe end /d:"sonar.login=$env:sonarlogin"
